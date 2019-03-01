@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>ACTIVITIES</h1>
+	<hr class="hr">
+	<br><br><br>
+	<form method="POST">
+	<table class="table table-striped table-bordered">
+		{% if session['data'] %}
+		<tbody>
+		{% for row in session['data'] %}
+			<tr>
+			{% if row['id1'] != session['id'] %}
+				{% if row['amount'] > 0 %}
+					<td>{{row['name']}} paid for {{row['description']}}.<b style="color: red">You owe</b> Rs.{{ -1*row['amount'] }}</td>
+				{% endif %}
+			{% elif row['id2'] != session['id'] %}
+				{% if row['amount'] > 0 %}
+					<td>You paid for {{row['description']}}.{{row['name']}} <b style="color: green">owes you</b> Rs.{{row['amount']}}</td>
+				{% elif row['amount'] < 0 %}
+					<td>{{row['name']}} paid for {{row['description']}}.<b style="color: red">You owe</b> Rs.{{ -1*row['amount'] }}</td>
+				{% else %}
+					<td>{{row['name']}} and you <b style="color: blue">settled up</b>.</td>
+				{% endif %}
+			{% endif %}
+				<td style="width: 40px;border: none;"><button type="submit" class="button1 btn btn-primary btn-block" name="delete" value="{{ row }}"" style="box-shadow: none;">DELETE</button></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+		{% endif %}
+	</table>
+	</form>
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>CURRENT GROUP</h1>
+	<hr class="hr">
+	<br><br><br>
+	<form method="POST">
+			<div class="form-group col-md-offset-3 col-md-6">
+				<i class="material-icons" style="color: orange">assignment<label style="color: black;font-family: 'Arima Madurai';">DESCRIPTION</label></i>
+				<input type="text" name="description" class="form-control" value="{{request.form.description}}">
+			</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				<i class="material-icons" style="color: green">account_balance_wallet<label style="color: black;font-family: 'Arima Madurai';">MONEY</label></i>
+				<input type="number" name="money" class="form-control" value="{{request.form.money}}">
+			</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				<i class="material-icons" style="color: blue">date_range<label style="color: black;font-family: 'Arima Madurai';">DATE</label></i>
+				<input type="date" name="date" class="form-control" value="{{request.form.date}}">
+			</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				 <li class="btn btn-block">
+              		<select name="friend">
+              			{% for i in session.group_data %}
+	                		<option value="{{ i['id'] }}">{{ i['name'] }}</option>
+	                	{% endfor %}
+                	</select>
+                </li>
+         	</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				<br>
+				<button type="submit" class="button1 btn btn-success btn-block" style="border-radius: 15px;">ADD</button>
+			</div>
+	</form>
+	<table class="table table-striped table-bordered">
+		{% if session['group_data'] %}
+		{% for i in session['group_data'] %}
+			<tr>
+				<td>
+					{{ session['mp'][i['id']] }} 
+				{% if session['balance'][i['id']] < 0 %}
+					<b style="color: green">recieves</b> Rs.{{ -1*session['balance'][i['id']] }}
+				{% elif session['balance'][i['id']] > 0 %}
+					<b style="color: red">gives</b> Rs.{{ session['balance'][i['id']] }}
+				{% else %}
+					<b style="color: blue">is settled up</b>
+				{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+		{% endif %}
+	</table>
+
+{% endblock %}

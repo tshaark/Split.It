@@ -1,0 +1,11 @@
+// money owed
+// friends
+// search
+// history
+/ description
+optimize history ( last 10 transactions )
+
+
+mysql bath file with connection parameters
+mysql real escape string
+if statement mysql

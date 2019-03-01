@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="container" style="border: 2.6px solid black;border-radius: 10px">
+		<h1 class="form-group col-md-offset-3 col-md-6">LOGIN</h1>
+		<br><br><br>
+		<hr class="hr">
+		<form action="" method="POST">
+		<div class="form-group col-md-offset-3 col-md-6">
+			<label>Email</label>
+			<input type="text" name="email" class="form-control" value="{{request.form.email}}">
+		</div>
+		<div class="form-group col-md-offset-3 col-md-6">
+			<label>Password</label>
+			<input type="password" name="password" class="form-control" value="{{request.form.password}}">
+		</div>
+		<div class="form-group col-md-offset-3 col-md-6">
+			<br>
+			<button type="submit" class="button1 btn btn-success btn-block " style="border-radius: 15px;">Submit</button>
+		</div>
+	</form>
+</div>
+{% endblock %}

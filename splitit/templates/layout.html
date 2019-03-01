@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>app</title>
+	<link rel="stylesheet" href="/static/style.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="bootstrap.bundle.min.js / bootstrap.bundle.js"></script>
+  	
+</head>
+<body id="a">
+	{% include 'includes/_navbar.html' %}
+	<div class="container">
+	{% include 'includes/_messages.html' %}
+	{% block body %}{% endblock %}
+	</div>
+	
+    <div class="footer1" >
+    	<br>
+        © 2018 Copyright:
+        <br>
+        <p> SPLIT.IT </p>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+	<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+	</script>
+</html>

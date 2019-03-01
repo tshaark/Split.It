@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai');
+#a{
+	font-family: 'Arima Madurai';
+}
+.footer1 {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+.hr{
+ 	width: 100%;
+ 	border: 1.5px solid black;
+ }
+ .button1{
+ 	box-shadow: 4px 4px gray;
+ }

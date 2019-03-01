@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>CREATE NEW GROUP</h1>
+	<hr class="hr">
+	<br><br><br>
+	<form method="POST">
+		<label>Name:</label>
+		<br>
+		<input type="text" name="name" placeholder="enter group name">
+	<table class="table table-striped table-bordered">
+	{% for i in session['friends'] %}
+    	<tr>
+    		<td><input type="checkbox"  name="users" value="{{i.id}}">
+    	<label>{{i.name}}</label></td>
+    	</tr>
+    	<br>
+	{% endfor %}
+	</table>
+	<button type="submit" class="button1 btn btn-success btn-md"  name="create" value="create" " style="box-shadow: none;">CREATE</button>
+</form>
+{% endblock %}

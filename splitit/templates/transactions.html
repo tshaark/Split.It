@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}	
+		<h1 class="form-group col-md-offset-3 col-md-6">NEW TRANSACTION</h1>
+		<br><br><br>
+		<hr class="hr">
+		<form action="" method="POST">
+			<div class="form-group col-md-offset-3 col-md-6">
+				<i class="material-icons" style="color: orange">assignment<label style="color: black;font-family: 'Arima Madurai';">DESCRIPTION</label></i>
+				<input type="text" name="description" class="form-control" value="{{request.form.description}}">
+			</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				<i class="material-icons" style="color: green">account_balance_wallet<label style="color: black;font-family: 'Arima Madurai';">MONEY</label></i>
+				<input type="number" name="money" class="form-control" value="{{request.form.money}}">
+			</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				<i class="material-icons" style="color: blue">date_range<label style="color: black;font-family: 'Arima Madurai';">DATE</label></i>
+				<input type="date" name="date" class="form-control" value="{{request.form.date}}">
+			</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				 <li class="btn btn-block">
+        	    <!--   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Type of transactions<b class="caret"></b></a> -->
+              		<!-- <ul class="dropdown-menu btn btn-block"> -->
+              		<select name="transtype">
+                		<option value="0">you owe {{ session['nameFriend'] }}.</option>
+                		<option value="1">{{ session['nameFriend'] }} owes you.</option>
+                		<option value="2">paid by you and split equally.</option>
+                		<option value="3">paid by {{ session['nameFriend'] }} and split equally.</option>
+                	</select>
+                </li>
+         	</div>
+			<div class="form-group col-md-offset-3 col-md-6">
+				<br>
+				<button type="submit" class="button1 btn btn-success btn-block" style="border-radius: 15px;">ADD</button>
+			</div>
+		</form>
+{% endblock %}
+		<!-- <div class="form-group col-md-offset-3 col-md-6">
+			<li class="dropdown btn btn-block">
+          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+          	  <ul class="dropdown-menu">
+            	<li><a href="#">Start Learning</a></li>
+            	<li><a href="#">View All Courses</a></li>
+        	    <li><a href="#">Chat with a CodeGuide</a></li>
+        	  </ul>
+        	</li>
+    	</div> -->
